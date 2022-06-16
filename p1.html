@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            font-family: "Roboto", sans-serif;
+            font-family: "Roboto Mono", monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="w-full md:w-1/2 mx-auto my-6 md:my-10">
+        <h1 class="text-center text-3xl font-bold mb-8 flex items-center justify-between flex-col md:flex-row">
+            <span>Consultation projet</span>
+            <span>استشارة مشروع</span>
+        </h1>
+        <form action="#">
+            <div class="flex flex-col gap-4">
+                <div class="flex-1 flex flex-col gap-2">
+                    <label class="flex justify-between text-grey-darkest" for="name">
+							<span>Nom</span>
+							<span>الاسم</span>
+						</label>
+                    <input id="name" placeholder="..............." type="text" class="h-10 text-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                </div>
+                <div class="flex-1 flex flex-col gap-2">
+                    <label class="flex justify-between text-grey-darkest" for="email">
+							<span>Email</span>
+							<span>الايميل</span>
+						</label>
+                    <input id="email" placeholder="example@domain.com" type="email" class="h-10 text-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                </div>
+                <div class="flex-1 flex flex-col gap-2">
+                    <label class="flex justify-between text-grey-darkest" for="phone">
+							<span>Telephone</span>
+							<span>الهاتف</span>
+						</label>
+                    <input id="phone" placeholder="+212600000000" type="tel" class="h-10 text-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                </div>
+                <div class="flex-1 flex flex-col gap-2">
+                    <label class="flex justify-between text-grey-darkest" for="project">
+							<span>Type de projet</span>
+							<span>نوع المشروع</span>
+						</label>
+                    <select id="project" class="max-h-38 text-center w-full bg-gray-50 text-grey-darkest rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 overflow-auto" multiple>
+							<option class="text-grey-darkest px-4 py-2" value="type 1">type 1</option>
+							<option class="text-grey-darkest px-4 py-2" value="type 2">type 2</option>
+							<option class="text-grey-darkest px-4 py-2" value="type 3">type 3</option>
+							<option class="text-grey-darkest px-4 py-2" value="type 4">type 4</option>
+						</select>
+                </div>
+                <div class="flex-1 flex flex-col gap-2">
+                    <label class="flex justify-between text-grey-darkest" for="date">
+							<span>Date</span>
+							<span>التاريخ</span>
+						</label>
+                    <input id="date" type="date" class="h-10 text-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                </div>
+                <div class="flex-1 flex flex-col gap-2">
+                    <label class="flex justify-between text-grey-darkest" for="hour">
+							<span>Heure</span>
+							<span>الساعة</span>
+						</label>
+                    <select id="hour" class="max-h-38 text-center w-full bg-gray-50 text-grey-darkest rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 overflow-auto" multiple>
+							<option class="text-grey-darkest px-4 py-2" value="4">4 - 5</option>
+							<option class="text-grey-darkest px-4 py-2" value="5">5 - 6</option>
+							<option class="text-grey-darkest px-4 py-2" value="6">6 - 7</option>
+							<option class="text-grey-darkest px-4 py-2" value="7">7 - 8</option>
+						</select>
+                </div>
+                <div class="flex-1 flex justify-end">
+                    <button class="px-6 py-2 text-white w-full md:w-48 bg-blue-500 rounded-md hover:bg-blue-400 flex gap-6 items-center justify-center">
+							<span>Creer</span>
+							<span>انشاء</span>
+						</button>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

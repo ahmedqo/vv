@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            font-family: "Roboto", sans-serif;
+            font-family: "Roboto Mono", monospace;
+        }
+        
+        .fc-button {
+            background-color: rgba(59, 130, 246, 1) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="w-full my-6 md:my-10">
+        <h1 class="text-3xl font-bold mb-8 flex items-center justify-between">Scheduler</h1>
+        <div id="calendar" class="w-full rounded-md"></div>
+    </section>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            var calendarEl = document.getElementById("calendar");
+
+            var Calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: "dayGridMonth",
+                initialDate: Date.now(),
+                headerToolbar: {
+                    left: "prev,next today",
+                    center: "title",
+                    right: "dayGridMonth,timeGridWeek,timeGridDay,list",
+                },
+                businessHours: {
+                    daysOfWeek: [1, 2, 3, 4, 5],
+                    startTime: "16:00",
+                    endTime: "19:00",
+                },
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault();
+                    console.log(info.event.url);
+                },
+                events: [{
+                    title: "test ev",
+                    url: 10,
+                    start: Date.now(),
+                }, {
+                    title: "Long Event",
+                    start: "2022-06-07",
+                }, {
+                    title: "Repeating Event",
+                    start: "2022-06-09T16:00:00",
+                }, {
+                    title: "Repeating Event",
+                    start: "2022-06-16T16:00:00",
+                }, {
+                    title: "Conference",
+                    start: "2022-06-11",
+                }, {
+                    title: "Meeting",
+                    start: "2022-06-12T10:30:00",
+                }, {
+                    title: "Lunch",
+                    start: "2022-06-12T12:00:00",
+                }, {
+                    title: "Meeting",
+                    start: "2022-06-12T14:30:00",
+                }, {
+                    title: "Birthday Party",
+                    start: "2022-06-13T07:00:00",
+                }, {
+                    title: "Click for Google",
+                    start: "2022-06-28",
+                }, ],
+            });
+
+            Calendar.render();
+            window.c = Calendar;
+        });
+    </script>
+</body>
+
+</html>

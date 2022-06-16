@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            font-family: "Roboto", sans-serif;
+            font-family: "Roboto Mono", monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="md:hidden shadow-md">
+        <nav class="nav w-1200 flex flex-wrap items-center mx-auto md:gap-6 justify-between md:justify-start flex-row-reverse">
+            <div class="flex flex-no-shrink items-center py-3 text-grey-darkest mr-4">
+                <span class="font-semibold text-xl tracking-tight">Luke Bennett</span>
+            </div>
+            <button onclick="menu(event)" class="md:hidden ml-4 inline-flex items-center justify-center rounded-md text-grey-darkest hover:text-grey-darker focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+					<svg class="block h-6 w-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+						<path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" />
+					</svg>
+					<svg class="block hidden h-6 w-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+						<path
+							d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"
+						/>
+					</svg>
+				</button>
+        </nav>
+    </header>
+    <div class="flex">
+        <aside id="menu" class="w-full md:w-64 fixed md:relative hidden md:block z-10">
+            <div class="overflow-y-auto p-3 md:py-0 h-screen bg-gray-50">
+                <div class="hidden md:flex flex-no-shrink items-center m-2 text-grey-darkest">
+                    <span class="font-semibold text-xl tracking-tight">Luke Bennett</span>
+                </div>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="./profile.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+								Profile
+							</a>
+                        <a href="./settings.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+								réglages
+							</a>
+                        <a href="./users.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+								Utilisateurs
+							</a>
+                        <a href="./scheduler.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+								Schedule
+							</a>
+                        <a href="" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+								Deconnexion
+							</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <main class="flex-1 p-4"></main>
+    </div>
+    <script defer>
+        function menu(e) {
+            const mnu = document.querySelector("#menu");
+            const icn = e.target.querySelectorAll("svg");
+            const btn = e.target;
+            icn.forEach((svg) => {
+                svg.classList.toggle("hidden");
+            });
+            mnu.classList.toggle("hidden");
+        }
+    </script>
+</body>
+
+</html>
