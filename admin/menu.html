@@ -20,16 +20,16 @@
 </head>
 
 <body>
-    <header class="md:hidden shadow-md">
-        <nav class="nav w-1200 flex flex-wrap items-center mx-auto md:gap-6 justify-between md:justify-start flex-row-reverse">
-            <div class="flex flex-no-shrink items-center py-3 text-grey-darkest mr-4">
+    <header class="md:hidden bg-blue-500">
+        <nav class="nav w-1200 flex flex-wrap items-center mx-auto md:gap-6 justify-between md:justify-start px-4">
+            <div class="flex flex-no-shrink items-center py-3 text-white mr-4">
                 <span class="font-semibold text-xl tracking-tight">Luke Bennett</span>
             </div>
-            <button onclick="menu(event)" class="md:hidden ml-4 inline-flex items-center justify-center rounded-md text-grey-darkest hover:text-grey-darker focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-					<svg class="block h-6 w-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+            <button onclick="menu(event)" class="md:hidden ml-4 inline-flex items-center justify-center rounded-md text-white hover:text-grey-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+					<svg class="block h-6 w-6 pointer-events-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
 						<path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" />
 					</svg>
-					<svg class="block hidden h-6 w-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+					<svg class="block hidden h-6 w-6 pointer-events-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
 						<path
 							d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"
 						/>
@@ -38,33 +38,33 @@
         </nav>
     </header>
     <div class="flex">
-        <aside id="menu" class="w-full md:w-64 fixed md:relative hidden md:block z-10">
-            <div class="overflow-y-auto p-3 md:py-0 h-screen bg-gray-50">
-                <div class="hidden md:flex flex-no-shrink items-center m-2 text-grey-darkest">
+        <aside id="menu" class="w-full border-t md:border-none md:w-64 fixed md:relative hidden md:block z-10">
+            <div class="sticky top-0 overflow-y-auto p-3 md:py-0 h-screen bg-blue-500">
+                <div class="hidden md:flex flex-no-shrink items-center m-2 mb-5 text-white">
                     <span class="font-semibold text-xl tracking-tight">Luke Bennett</span>
                 </div>
                 <ul class="space-y-2">
                     <li>
-                        <a href="./profile.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+                        <a href="./profile.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-white hover:bg-gray-50 hover:bg-opacity-25">
 								Profile
 							</a>
-                        <a href="./settings.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+                        <a href="./settings.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-white hover:bg-gray-50 hover:bg-opacity-25">
 								réglages
 							</a>
-                        <a href="./users.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+                        <a href="./users.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-white hover:bg-gray-50 hover:bg-opacity-25">
 								Utilisateurs
 							</a>
-                        <a href="./scheduler.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+                        <a href="./scheduler.html" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-white hover:bg-gray-50 hover:bg-opacity-25">
 								Schedule
 							</a>
-                        <a href="" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-grey-darkest hover:bg-gray-200" href="./notifications.html">
+                        <a href="" class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 text-white hover:bg-gray-50 hover:bg-opacity-25">
 								Deconnexion
 							</a>
                     </li>
                 </ul>
             </div>
         </aside>
-        <main class="flex-1 p-4"></main>
+        <main class="flex-1 p-4 bg-gray-100"></main>
     </div>
     <script defer>
         function menu(e) {
