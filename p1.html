@@ -10,62 +10,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     <title>Document</title>
-    <style>
-        * {
-            font-family: "Poppins", sans-serif;
-            font-family: "Roboto", sans-serif;
-            font-family: "Roboto Mono", monospace;
-        }
-        
-        option:disabled {
-            background-color: rgb(192 190 168);
-        }
-        
-        [data-lang="FR"] {
-            text-align: left;
-            justify-content: flex-start;
-        }
-        
-        form [data-lang="AR"] {
-            text-align: right;
-            justify-content: flex-end;
-        }
-        
-        form section[data-lang="AR"] {
-            flex-direction: row-reverse;
-        }
-    </style>
 </head>
 
 <body>
-    <section data-lang="FR" class="flex gap-16 mx-auto my-6 md:my-10">
+    <section data-lang="FR" class="FR flex gap-16 mx-auto my-10 md:my-16">
         <div class="flex-1">
-            <h1 class="text-3xl md:text-4xl text-center font-bold mb-8 md:mb-12 flex items-center justify-center flex-col md:flex-row">
-                <span>Consultation projet</span>
+            <h1 data-lang-id="title" class="text-3xl md:text-4xl text-center font-bold mb-8 md:mb-12 flex items-center justify-center flex-col md:flex-row">
+                Consultation projet
             </h1>
             <form action="#">
                 <div class="flex flex-col gap-4">
                     <div class="flex-1 flex flex-col gap-2">
-                        <label data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="name">
-								<span>Nom</span>
+                        <label data-lang-id="name" data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="name">
+								Nom
 							</label>
-                        <input data-lang="FR" id="name" placeholder="Nom" type="text" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                        <input data-lang-id="name" data-lang="FR" id="name" placeholder="Nom" type="text" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     </div>
                     <div class="flex-1 flex flex-col gap-2">
-                        <label data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="email">
-								<span>Email</span>
+                        <label data-lang-id="email" data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="email">
+								Email
 							</label>
-                        <input data-lang="FR" id="email" placeholder="Email" type="email" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                        <input data-lang-id="email" data-lang="FR" id="email" placeholder="Email" type="email" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     </div>
                     <div class="flex-1 flex flex-col gap-2">
-                        <label data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="phone">
-								<span>Telephone</span>
+                        <label data-lang-id="phone" data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="phone">
+								Telephone
 							</label>
-                        <input data-lang="FR" id="phone" placeholder="Telephone" type="tel" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                        <input data-lang-id="phone" data-lang="FR" id="phone" placeholder="Telephone" type="tel" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     </div>
                     <div class="flex-1 flex flex-col gap-2">
-                        <label data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="project">
-								<span>Type de projet</span>
+                        <label data-lang-id="type" data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="project">
+								Type de projet
 							</label>
                         <select data-lang="FR" id="project" placeholder="Type de projet" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 overflow-auto">
 								<option class="text-grey-darkest px-4 py-2 text-md" value="type 1">type 1</option>
@@ -75,14 +50,14 @@
 							</select>
                     </div>
                     <div class="flex-1 flex flex-col gap-2">
-                        <label data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="date">
-								<span>Date</span>
+                        <label data-lang-id="date" data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="date">
+								Date
 							</label>
-                        <input data-lang="FR" id="date" placeholder="Date" type="date" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                        <input data-lang-id="date" data-lang="FR" id="date" placeholder="Date" type="date" class="h-12 text-md w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     </div>
                     <div class="flex-1 flex flex-col gap-2">
-                        <label data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="hour">
-								<span>Heure</span>
+                        <label data-lang-id="hour" data-lang="FR" class="text-md flex justify-between text-grey-darkest" for="hour">
+								Heure
 							</label>
                         <select data-lang="FR" id="hour" class="max-h-38 w-full bg-gray-50 text-grey-darkest rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 overflow-auto" multiple>
 								<option class="text-grey-darkest px-4 py-2 text-md" value="4" disabled>4 - 5</option>
@@ -92,8 +67,8 @@
 							</select>
                     </div>
                     <div class="flex-1 flex justify-end">
-                        <button class="px-6 py-2 h-12 text-md text-white w-full bg-blue-500 rounded-md hover:bg-blue-400 flex gap-6 items-center justify-center">
-								<span>Envoyer</span>
+                        <button data-lang-id="btn" class="px-6 py-2 h-12 text-md text-white w-full bg-blue-500 rounded-md hover:bg-blue-400 flex gap-6 items-center justify-center">
+								Envoyer
 							</button>
                     </div>
                 </div>
@@ -605,6 +580,34 @@
 				</svg>
         </div>
     </section>
+    <script defer>
+        const DICT = {
+            FR: {
+                project: "Projet",
+                consult: "Consultation",
+                title: "Consultation projet",
+                name: "Nom",
+                email: "Email",
+                phone: "Telephone",
+                type: "Type de projet",
+                date: "Date",
+                hour: "Heure",
+                btn: "Envoyer",
+            },
+            AR: {
+                project: "مشروع",
+                consult: "استشارة",
+                title: "استشارة المشروع",
+                name: "الاسم",
+                email: "البريد الإلكتروني",
+                phone: "الهاتف",
+                type: "نوع المشروع",
+                date: "التاريخ",
+                hour: "الساعة",
+                btn: "إرسال",
+            },
+        };
+    </script>
 </body>
 
 </html>

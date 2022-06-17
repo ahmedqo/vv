@@ -22,6 +22,10 @@
             max-width: 1200px;
         }
         
+        option:disabled {
+            background-color: rgb(192 190 168);
+        }
+        
         .header [data-lang="AR"] {
             flex-direction: row-reverse;
             text-align: right;
@@ -30,6 +34,20 @@
         .header li[data-lang="AR"] {
             margin-right: auto;
             margin-left: unset;
+        }
+        
+        [data-lang="FR"] {
+            text-align: left;
+            justify-content: start;
+        }
+        
+        form [data-lang="AR"] {
+            text-align: right;
+            justify-content: end;
+        }
+        
+        form .FR[data-lang="AR"] {
+            flex-direction: row-reverse;
         }
     </style>
 </head>
@@ -54,12 +72,12 @@
             </div>
             <ul data-lang="FR" id="menu" class="hidden border-t md:border-none md:flex m-0 w-full md:w-0 md:flex-1 md:w-auto flex-col md:flex-row md:gap-4">
                 <li class="px-4 md:px-0 py-2 md:py-0">
-                    <a data-lang="FR" href="/about/" class="block md:inline-block font-black underline">
+                    <a data-lang-id="project" data-lang="FR" href="/about/" class="block md:inline-block font-black underline">
 							Projet
 						</a>
                 </li>
                 <li class="px-4 md:px-0 py-2 md:py-0">
-                    <a data-lang="FR" href="./p1.html" class="block md:inline-block">
+                    <a data-lang-id="consult" data-lang="FR" href="./p1.html" class="block md:inline-block">
 							Consultation
 						</a>
                 </li>
@@ -83,6 +101,15 @@
             mnu.classList.toggle("hidden");
         }
 
+        function setText(lang) {
+            var data = DICT[lang];
+            document.querySelectorAll("[data-lang-id]").forEach((el) => {
+                var id = el.dataset.langId;
+                el.innerHTML = data[id];
+                if (el.tagName === "INPUT") el.setAttribute("placeholder", data[id]);
+            });
+        }
+
         function setLang(e) {
             var lang = localStorage.getItem("lang");
             lang = lang === "FR" ? "AR" : "FR";
@@ -91,6 +118,7 @@
             document.querySelectorAll("[data-lang]").forEach((el) => {
                 el.dataset.lang = lang;
             });
+            setText(lang);
         }
 
         setLang({
