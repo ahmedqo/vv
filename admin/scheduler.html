@@ -42,7 +42,38 @@
 <body>
     <section class="w-full my-6 md:my-10">
         <h1 class="text-3xl font-bold mb-8 flex items-center justify-between">Schedule</h1>
-        <div id="calendar" class="w-full rounded-md p-4 bg-white"></div>
+        <div class="w-full rounded-md p-4 bg-white">
+            <div id="calendar"></div>
+        </div>
+        <div id="overlay" class="hidden fixed p-4 inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center">
+            <button onclick="toggle()" class="absolute top-2 right-2 inline-flex items-center justify-center rounded-md text-white hover:text-grey-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+					<svg class="block w-10 h-10 pointer-events-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+						<path
+							d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"
+						/>
+					</svg>
+				</button>
+            <div class="w-full md:w-1/2 rounded-md p-4 bg-white">
+                <div class="flex flex-col gap-4">
+                    <div class="flex-1 flex flex-col gap-2">
+                        <label class="text-md flex justify-between text-grey-darkest">Name</label>
+                        <div id="name" class="h-12 text-md flex items-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></div>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-2">
+                        <label class="text-md flex justify-between text-grey-darkest">Email</label>
+                        <div id="email" class="h-12 text-md flex items-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></div>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-2">
+                        <label class="text-md flex justify-between text-grey-darkest">Phone</label>
+                        <div id="phone" class="h-12 text-md flex items-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></div>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-2">
+                        <label class="text-md flex justify-between text-grey-darkest">Project type</label>
+                        <div id="type" class="h-12 text-md flex items-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <script defer>
         document.addEventListener("DOMContentLoaded", function() {
@@ -51,8 +82,10 @@
             var Calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: "dayGridMonth",
                 initialDate: Date.now(),
+                allDaySlot: false,
+                height: window.innerHeight,
                 headerToolbar: {
-                    left: "prev,next today",
+                    left: "prev,next,today",
                     center: "title",
                     right: "dayGridMonth,timeGridWeek,timeGridDay,list",
                 },
@@ -63,54 +96,142 @@
                 },
                 eventClick: function(info) {
                     info.jsEvent.preventDefault();
-                    console.log(info.event.url);
+                    var data = JSON.parse(info.event.id);
+                    setData(data);
+                    toggle();
                 },
                 events: [{
                     title: "test ev",
-                    start: Date.now(),
-                    url: Date.now(),
+                    start: "2022-06-20T16:00:00",
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Long Event",
                     start: "2022-06-07T16:00:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 1",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Repeating Event",
                     start: "2022-06-09T16:00:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 2",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Repeating Event",
                     start: "2022-06-16T16:00:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 3",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Conference",
                     start: "2022-06-11T16:00:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 4",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Meeting",
                     start: "2022-06-12T10:30:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 5",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Lunch",
                     start: "2022-06-12T12:00:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 6",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Meeting",
                     start: "2022-06-12T14:30:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 7",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Birthday Party",
                     start: "2022-06-13T07:00:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 8",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, {
                     title: "Click for Google",
                     start: "2022-06-28T16:00:00",
-                    url: Date.now(),
+                    url: "#",
+                    id: JSON.stringify({
+                        id: 10,
+                        name: "John Doe 9",
+                        email: "john@domain.com",
+                        phone: "+212679719118",
+                        type: "type 1",
+                    }),
                 }, ],
             });
 
             Calendar.render();
             window.c = Calendar;
         });
+
+        window.addEventListener("resize", function() {
+            document.querySelector("#calendar").style.height = window.innerHeight + "px";
+        });
+
+        function setData(data) {
+            document.getElementById("name").innerHTML = data["name"];
+            document.getElementById("email").innerHTML = data["email"];
+            document.getElementById("phone").innerHTML = data["phone"];
+            document.getElementById("type").innerHTML = data["type"];
+        }
+
+        function toggle() {
+            var ovl = document.querySelector("#overlay");
+            ovl.classList.toggle("hidden");
+        }
     </script>
 </body>
 
