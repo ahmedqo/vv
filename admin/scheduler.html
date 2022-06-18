@@ -19,15 +19,29 @@
             font-family: "Roboto Mono", monospace;
         }
         
-        .fc-button {
+        .fc-header-toolbar {
+            flex-wrap: wrap;
+        }
+        
+        .fc-header-toolbar .fc-toolbar-chunk:nth-child(2) {
+            text-align: center;
+            width: 100%;
+            order: -1;
+        }
+        
+        .fc-header-toolbar button,
+        .fc-header-toolbar .fc-icon {
             background-color: rgba(59, 130, 246, 1) !important;
+            vertical-align: unset !important;
+            font-size: 14px !important;
+            border: unset !important;
         }
     </style>
 </head>
 
 <body>
     <section class="w-full my-6 md:my-10">
-        <h1 class="text-3xl font-bold mb-8 flex items-center justify-between">Scheduler</h1>
+        <h1 class="text-3xl font-bold mb-8 flex items-center justify-between">Schedule</h1>
         <div id="calendar" class="w-full rounded-md p-4 bg-white"></div>
     </section>
     <script defer>
@@ -53,35 +67,44 @@
                 },
                 events: [{
                     title: "test ev",
-                    url: 10,
                     start: Date.now(),
+                    url: Date.now(),
                 }, {
                     title: "Long Event",
-                    start: "2022-06-07",
+                    start: "2022-06-07T16:00:00",
+                    url: Date.now(),
                 }, {
                     title: "Repeating Event",
                     start: "2022-06-09T16:00:00",
+                    url: Date.now(),
                 }, {
                     title: "Repeating Event",
                     start: "2022-06-16T16:00:00",
+                    url: Date.now(),
                 }, {
                     title: "Conference",
-                    start: "2022-06-11",
+                    start: "2022-06-11T16:00:00",
+                    url: Date.now(),
                 }, {
                     title: "Meeting",
                     start: "2022-06-12T10:30:00",
+                    url: Date.now(),
                 }, {
                     title: "Lunch",
                     start: "2022-06-12T12:00:00",
+                    url: Date.now(),
                 }, {
                     title: "Meeting",
                     start: "2022-06-12T14:30:00",
+                    url: Date.now(),
                 }, {
                     title: "Birthday Party",
                     start: "2022-06-13T07:00:00",
+                    url: Date.now(),
                 }, {
                     title: "Click for Google",
-                    start: "2022-06-28",
+                    start: "2022-06-28T16:00:00",
+                    url: Date.now(),
                 }, ],
             });
 
