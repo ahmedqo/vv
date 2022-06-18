@@ -56,6 +56,9 @@
             <div class="w-full md:w-1/2 rounded-md p-4 bg-white">
                 <div class="flex flex-col gap-4">
                     <div class="flex-1 flex flex-col gap-2">
+                        <label id="title" class="text-xl md:text-2xl mb-2 font-black flex justify-between text-grey-darkest"></label>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-2">
                         <label class="text-md flex justify-between text-grey-darkest">Name</label>
                         <div id="name" class="h-12 text-md flex items-center w-full bg-gray-50 text-grey-darkest px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></div>
                     </div>
@@ -110,6 +113,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Long Event",
@@ -121,6 +126,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Repeating Event",
@@ -132,6 +139,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Repeating Event",
@@ -143,6 +152,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Conference",
@@ -154,6 +165,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Meeting",
@@ -165,6 +178,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Lunch",
@@ -176,6 +191,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Meeting",
@@ -187,6 +204,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Birthday Party",
@@ -198,6 +217,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2020",
+                        hour: "5",
                     }),
                 }, {
                     title: "Click for Google",
@@ -209,6 +230,8 @@
                         email: "john@domain.com",
                         phone: "+212679719118",
                         type: "type 1",
+                        date: "05/06/2022",
+                        hour: "5",
                     }),
                 }, ],
             });
@@ -221,7 +244,35 @@
             document.querySelector("#calendar").style.height = window.innerHeight + "px";
         });
 
+        const daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const monthsList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Aug", "Oct", "Nov", "Dec"];
+        let amOrPm;
+
+        function twelveHours(date) {
+            if (date.getHours() > 12) {
+                amOrPm = "PM";
+                let twentyFourHourTime = date.getHours();
+                let conversion = twentyFourHourTime - 12;
+                return `${conversion}`;
+            } else {
+                amOrPm = "AM";
+                return `${date.getHours()}`;
+            }
+        }
+
         function setData(data) {
+            const date = new Date(data.date + " 0" + data.hour + ":00:00 pm");
+            let _date = date.getDate();
+            let month = monthsList[date.getMonth()];
+            let year = date.getFullYear();
+            let day = daysList[date.getDay()];
+
+            let today = `${_date} ${month} ${year}, ${day}`;
+            let hours = twelveHours(date);
+            let minutes = date.getMinutes();
+            let currentTime = `${hours > 9 ? hours : "0" + hours}:${minutes > 9 ? minutes : "0" + minutes} ${amOrPm}`;
+
+            document.getElementById("title").innerHTML = today + " " + currentTime;
             document.getElementById("name").innerHTML = data["name"];
             document.getElementById("email").innerHTML = data["email"];
             document.getElementById("phone").innerHTML = data["phone"];
