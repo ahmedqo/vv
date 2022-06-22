@@ -77,31 +77,29 @@
                     <span data-lang-id="brand" class="font-black text-xl tracking-tight">Creator</span>
                 </div>
                 <button onclick="menu(event)" class="md:hidden inline-flex items-center justify-center rounded-md text-white hover:text-grey-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-						<svg class="block h-6 w-6 pointer-events-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-							<path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" />
-						</svg>
-						<svg class="block hidden h-6 w-6 pointer-events-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-							<path
-								d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"
-							/>
-						</svg>
-					</button>
+          <svg class="block h-6 w-6 pointer-events-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+            <path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" />
+          </svg>
+          <svg class="block hidden h-6 w-6 pointer-events-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+            <path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z" />
+          </svg>
+        </button>
             </div>
             <ul data-lang="EN" id="menu" class="hidden border-t md:border-none md:flex m-0 w-full md:w-0 md:flex-1 md:w-auto flex-col md:flex-row md:gap-4">
                 <li class="px-4 md:px-0 py-2 md:py-0">
                     <a data-lang-id="project" data-lang="EN" href="./create.html" class="block md:inline-block font-black underline">
-							Project
-						</a>
+            Project
+          </a>
                 </li>
                 <li class="px-4 md:px-0 py-2 md:py-0">
                     <a data-lang-id="consult" data-lang="EN" href="./consult.html" class="block md:inline-block">
-							Consult
-						</a>
+            Consult
+          </a>
                 </li>
                 <li data-lang="EN" class="px-4 md:px-0 py-2 md:py-0 ml-auto">
                     <button data-lang="EN" onclick="setLang(event)" class="langbtn w-full md:w-max text-left">
-							Language: EN
-						</button>
+            Language: EN
+          </button>
                 </li>
             </ul>
         </nav>
@@ -128,19 +126,27 @@
         }
 
         function setLang(e) {
-            var lang = localStorage.getItem("lang");
+            var lang = localStorage.getItem("creator-lang");
             lang = lang === "EN" ? "AR" : "EN";
-            localStorage.setItem("lang", lang);
+            localStorage.setItem("creator-lang", lang);
             e.target.innerHTML = DICT[lang].lang;
+            document.getElementById("lang").innerHTML = DICT[lang].lang;
             document.querySelectorAll("[data-lang]").forEach((el) => {
                 el.dataset.lang = lang;
             });
             setText(lang);
         }
 
-        setLang({
-            target: document.querySelector(".langbtn"),
-        });
+        (() => {
+            var lang = localStorage.getItem("creator-lang");
+            lang = lang ? lang : "EN";
+            localStorage.setItem("creator-lang", lang);
+            document.getElementById("lang").innerHTML = DICT[lang].lang;
+            document.querySelectorAll("[data-lang]").forEach((el) => {
+                el.dataset.lang = lang;
+            });
+            setText(lang);
+        })()
     </script>
 </body>
 
